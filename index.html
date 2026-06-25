@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>重返20岁 - 02交通 毕业20周年</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
@@ -219,6 +221,12 @@ footer .brand { color:#34d399; font-weight:600; }
   .route-step { padding:14px 16px; }
   .info-box { padding:18px 16px; }
 }
+/* Map */
+#campus-map { height:500px; border-radius:16px; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.08); }
+.map-legend { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:12px; font-size:13px; color:#6b7280; }
+.map-legend span { display:flex; align-items:center; gap:4px; }
+.map-legend .dot { width:10px; height:10px; border-radius:50%; display:inline-block; background:#059669; }
+@media (max-width:640px) { #campus-map { height:380px; border-radius:12px; } }
 </style>
 </head>
 <body>
@@ -228,6 +236,7 @@ footer .brand { color:#34d399; font-weight:600; }
   <a href="#photos">照片</a>
   <a href="#schedule">行程</a>
   <a href="#tour">导览</a>
+  <a href="#map">地图</a>
   <a href="#banquet">晚宴</a>
   <a href="#quiz">问答</a>
   <a href="#awards">颁奖</a>
@@ -338,6 +347,22 @@ footer .brand { color:#34d399; font-weight:600; }
   <div class="route-step"><div class="route-num">04</div><div class="route-info"><h4>操场 / 体育馆</h4><p>回忆运动会、体测、晨跑的汗与笑，15分钟</p></div></div>
   <div class="route-step"><div class="route-num">05</div><div class="route-info"><h4>食堂 + 后街</h4><p>边走边指——这家还在，那家早没了，25分钟</p></div></div>
   <div class="route-step"><div class="route-num">06</div><div class="route-info"><h4>校园标志点 / 大草坪</h4><p>拍大合影，自由取景留念，30分钟</p></div></div>
+</section>
+
+<section id="map">
+  <div class="section-title">
+    <h3>校 园 地 图</h3>
+    <div class="sub">江浦校区 · 聚会行走路线</div>
+    <div class="bar"></div>
+  </div>
+  <div id="campus-map"></div>
+  <div class="map-legend">
+    <span><span class="dot"></span> 1 正大门(南门)</span>
+    <span><span class="dot"></span> 2 厚学楼</span>
+    <span><span class="dot"></span> 3 东苑食堂</span>
+    <span><span class="dot"></span> 4 北苑食堂</span>
+    <span><span class="dot"></span> 5 北苑14栋</span>
+  </div>
 </section>
 
 <section id="banquet">
@@ -451,9 +476,7 @@ footer .brand { color:#34d399; font-weight:600; }
 </section>
 
 <footer>
-  <img src="qrcode.png" alt="QR code" style="width:140px;height:auto;margin-bottom:12px;border-radius:8px;">
-  <p style="font-size:12px;color:#9ca3af;margin-bottom:6px;">扫码查看聚会详情</p>
-  <p style="margin-top:8px;"><span class="brand">02级交通工程</span> · 毕业20周年</p>
+  <p><span class="brand">02级交通工程</span> · 毕业20周年</p>
   <p>2026年7月18日—19日 · 南京工业大学</p>
   <p>那年我们从南工大出发，如今归来仍是少年</p>
 </footer>
@@ -474,6 +497,71 @@ function closeLightbox() {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeLightbox();
 });
+
+// Campus Map
+(function() {
+  var map = L.map('campus-map', {
+    center: [32.0790, 118.6370],
+    zoom: 15,
+    zoomControl: true,
+    attributionControl: false
+  });
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19
+  }).addTo(map);
+
+  // Route points (WGS84)
+  var route = [
+    { name: '1. 正大门(南门)', lat: 32.075689, lng: 118.637546 },
+    { name: '2. 厚学楼', lat: 32.076990, lng: 118.636947 },
+    { name: '3. 东苑食堂', lat: 32.079292, lng: 118.635649 },
+    { name: '4. 北苑食堂', lat: 32.082496, lng: 118.634052 },
+    { name: '5. 北苑14栋', lat: 32.083999, lng: 118.632255 }
+  ];
+
+  // Draw route line
+  var latlngs = route.map(function(p) { return [p.lat, p.lng]; });
+  L.polyline(latlngs, {
+    color: '#059669',
+    weight: 4,
+    opacity: 0.8,
+    dashArray: null
+  }).addTo(map);
+
+  // Draw arrow decorators
+  for (var i = 0; i < latlngs.length - 1; i++) {
+    var mid = [
+      (latlngs[i][0] + latlngs[i+1][0]) / 2,
+      (latlngs[i][1] + latlngs[i+1][1]) / 2
+    ];
+    L.circleMarker(mid, {
+      radius: 4,
+      color: '#fff',
+      fillColor: '#059669',
+      fillOpacity: 1,
+      weight: 2
+    }).addTo(map);
+  }
+
+  // Draw markers
+  var icon = L.divIcon({
+    html: '<div style="background:#059669;color:#fff;width:24px;height:24px;border-radius:50%;text-align:center;line-height:24px;font-size:12px;font-weight:700;box-shadow:0 2px 6px rgba(0,0,0,0.2);border:2px solid #fff;"></div>',
+    iconSize: [24, 24],
+    iconAnchor: [12, 12],
+    popupAnchor: [0, -14]
+  });
+
+  route.forEach(function(p, i) {
+    var marker = L.marker([p.lat, p.lng], { icon: icon }).addTo(map);
+    // Set number on icon
+    marker._icon.querySelector('div').textContent = i + 1;
+    marker.bindPopup('<strong>' + p.name + '</strong>');
+  });
+
+  // Fit bounds to show all points
+  map.fitBounds(latlngs, { padding: [40, 40] });
+})();
 </script>
 </body>
 </html>
