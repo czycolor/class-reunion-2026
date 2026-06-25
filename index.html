@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>重返20岁 · 02交通 毕业20周年</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: "PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;
+  color:#2c1810; background:#faf8f4; line-height:1.8;
+}
+nav {
+  position:fixed; top:0; width:100%; z-index:100;
+  background:rgba(44,24,16,0.95); backdrop-filter:blur(10px);
+  padding:0 8px; display:flex; gap:4px; overflow-x:auto;
+  flex-wrap:nowrap; justify-content:center; height:44px; align-items:center;
+}
+nav a {
+  color:#c4a882; text-decoration:none; font-size:11px;
+  white-space:nowrap; padding:4px 8px; border-radius:3px;
+  transition:all .2s; flex-shrink:0;
+}
+nav a:hover { color:#f5f0e8; background:rgba(196,168,130,0.2); }
+.hero {
+  min-height:100vh; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; text-align:center;
+  background:linear-gradient(135deg, #2c1810 0%, #1a1a2e 50%, #2c1810 100%);
+  color:#f5f0e8; padding:60px 20px; position:relative; overflow:hidden;
+}
+.hero::before {
+  content:''; position:absolute; top:0;left:0;right:0;bottom:0;
+  background:radial-gradient(ellipse at center, rgba(196,168,130,0.12) 0%, transparent 70%);
+}
+.hero-content { position:relative; z-index:1; }
+.hero .year { font-size:14px; color:#c4a882; letter-spacing:10px; margin-bottom:30px; }
+.hero h1 {
+  font-family:"STKaiti","KaiTi",serif;
+  font-size:clamp(36px,8vw,60px); font-weight:400; letter-spacing:8px;
+}
+.hero h2 {
+  font-size:clamp(14px,3vw,18px); color:#c4a882;
+  letter-spacing:4px; margin:10px 0 30px; font-weight:400;
+}
+.hero .line { width:80px; height:1px; background:#c4a882; margin:0 auto 30px; }
+.hero .info { font-size:14px; color:#b8a088; letter-spacing:2px; margin:6px 0; }
+.hero .bottom {
+  position:absolute; bottom:40px;
+  font-family:"STKaiti","KaiTi",serif; font-size:15px;
+  color:#8b7355; letter-spacing:4px;
+}
+.scroll-hint {
+  position:absolute; bottom:80px; animation:bounce 2s infinite;
+  color:#8b7355; font-size:24px;
+}
+@keyframes bounce {
+  0%,100%{transform:translateY(0);} 50%{transform:translateY(10px);}
+}
+section { padding:60px 20px; max-width:800px; margin:0 auto; }
+.section-title { text-align:center; margin-bottom:40px; }
+.section-title h3 { font-size:24px; letter-spacing:4px; color:#2c1810; }
+.section-title .sub {
+  font-family:"STKaiti","KaiTi",serif; font-size:14px;
+  color:#8b7355; margin-top:6px; letter-spacing:2px;
+}
+.section-title .gold {
+  width:50px; height:1px; background:#c4a882; margin:12px auto 0;
+}
+.card {
+  background:#fff; border-radius:8px; padding:24px;
+  box-shadow:0 2px 16px rgba(44,24,16,0.06); margin-bottom:16px;
+}
+.invite-text {
+  font-family:"STKaiti","KaiTi",serif; font-size:16px; line-height:2.4;
+  text-align:center; color:#3c2820; max-width:500px; margin:0 auto 24px;
+}
+.info-box {
+  background:#faf6ef; border:1px solid #d4c4a8; border-radius:8px;
+  padding:24px; max-width:420px; margin:0 auto;
+}
+.info-box .row {
+  display:flex; padding:8px 0; border-bottom:1px dashed #e0d4c0;
+}
+.info-box .row:last-child { border:none; }
+.info-box .label { color:#8b7355; font-weight:600; width:80px; flex-shrink:0; font-size:14px; }
+.info-box .value { color:#2c1810; font-size:14px; }
+.gallery {
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:12px;
+}
+.gallery img {
+  width:100%; height:240px; object-fit:cover; border-radius:6px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08); transition:transform .3s; cursor:pointer;
+}
+.gallery img:hover { transform:scale(1.03); }
+.lightbox {
+  display:none; position:fixed; top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.9); z-index:200; justify-content:center; align-items:center;
+}
+.lightbox.active { display:flex; }
+.lightbox img { max-width:90%; max-height:85vh; border-radius:4px; }
+.lightbox .close {
+  position:absolute; top:20px;right:30px; color:#fff; font-size:32px; cursor:pointer;
+}
+.table-wrap { overflow-x:auto; margin:16px 0; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th { background:#3c2820; color:#f5f0e8; padding:10px 12px; font-weight:500; text-align:center; }
+td { padding:8px 12px; border-bottom:1px solid #e0d4c0; text-align:center; }
+tr:nth-child(even) td { background:#faf8f4; }
+.total-row td { background:#f0ebe0!important; font-weight:bold; }
+.timeline { position:relative; padding-left:30px; }
+.timeline::before {
+  content:''; position:absolute; left:8px; top:0; bottom:0;
+  width:1px; background:#d4c4a8;
+}
+.timeline-item { position:relative; margin-bottom:24px; }
+.timeline-item::before {
+  content:''; position:absolute; left:-26px; top:8px;
+  width:8px; height:8px; border-radius:50%; background:#c4a882;
+}
+.timeline-item .time { font-size:13px; color:#8b7355; }
+.timeline-item .title { font-size:16px; font-weight:600; color:#2c1810; }
+.timeline-item .desc { font-size:13px; color:#5c3d2e; }
+.quiz-item {
+  background:#faf8f4; border-left:3px solid #c4a882;
+  padding:12px 16px; margin:12px 0; border-radius:0 6px 6px 0;
+}
+.quiz-item .q-num { font-size:12px; color:#8b7355; font-weight:600; }
+.quiz-item .q-text { margin-top:4px; font-size:14px; }
+.award-item {
+  text-align:center; padding:16px; margin:12px 0;
+  background:#faf8f4; border:1px solid #e0d4c0; border-radius:8px;
+}
+.award-item .award-name {
+  font-family:"STKaiti","KaiTi",serif; font-size:18px; color:#2c1810;
+}
+.award-item .award-desc { font-size:13px; color:#5c3d2e; margin-top:4px; }
+.check-group { margin-bottom:20px; }
+.check-group h4 { font-size:15px; color:#2c1810; margin-bottom:8px; }
+.check-item { font-size:13px; color:#3c2820; padding:4px 0 4px 20px; }
+.route-step { display:flex; gap:12px; margin:16px 0; align-items:flex-start; }
+.route-num { font-size:20px; color:#c4a882; font-weight:700; min-width:32px; }
+.route-info h4 { font-size:15px; color:#2c1810; }
+.route-info p { font-size:13px; color:#8b7355; }
+.cta {
+  text-align:center; font-family:"STKaiti","KaiTi",serif;
+  font-size:18px; color:#8b7355; padding:20px;
+}
+footer {
+  text-align:center; padding:40px 20px; color:#8b7355;
+  font-size:13px; border-top:1px solid #e0d4c0;
+}
+footer .heart { color:#c4a882; }
+@media (max-width:600px) {
+  section { padding:40px 16px; }
+  .hero h1 { font-size:36px; }
+  .gallery { grid-template-columns:repeat(2,1fr); gap:8px; }
+  .gallery img { height:160px; }
+  nav a { font-size:10px; padding:4px 5px; }
+  table { font-size:12px; }
+  th, td { padding:6px 8px; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="#home">封面</a>
+  <a href="#invitation">邀请函</a>
+  <a href="#photos">照片</a>
+  <a href="#schedule">行程</a>
+  <a href="#tour">导览</a>
+  <a href="#banquet">晚宴</a>
+  <a href="#quiz">问答</a>
+  <a href="#awards">颁奖</a>
+  <a href="#budget">预算</a>
+  <a href="#checklist">清单</a>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="year">2 0 0 6  —  2 0 2 6</div>
+    <h1>重返20岁</h1>
+    <h2>02级交通工程 · 毕业20周年聚会</h2>
+    <div class="line"></div>
+    <div class="info">2026年7月18日 — 19日</div>
+    <div class="info">南京工业大学 · 江浦校区</div>
+    <div class="info">02级交通工程全体同学</div>
+  </div>
+  <div class="scroll-hint">&#x2193;</div>
+  <div class="bottom">那年我们从南工大出发<br>如今归来仍是少年</div>
+</section>
+
+<section id="invitation">
+  <div class="section-title"><h3>聚 会 邀 请 函</h3><div class="gold"></div></div>
+  <div class="invite-text">
+    <p>那年夏天，我们从南工大出发，奔向各自的远方。</p>
+    <p>二十年，足够一棵树从幼苗长成参天，</p>
+    <p>足够一个少年从青涩走向成熟。</p>
+    <p>但总有些东西，从未改变——</p>
+    <p>比如那间教室的日光灯，比如操场上的蝉鸣，</p>
+    <p>比如下课后一起冲进食堂的脚步声。</p>
+    <br>
+    <p>20年后，让我们回到起点，</p>
+    <p>看看彼此的模样，聊聊这些年的故事。</p>
+    <p>教室还是那间教室，操场还是那片操场，</p>
+    <p>而故事，等我们回来续写。</p>
+  </div>
+  <div class="info-box">
+    <div class="row"><span class="label">时间</span><span class="value">2026年7月18日（周六）— 19日（周日）</span></div>
+    <div class="row"><span class="label">地点</span><span class="value">南京工业大学（江浦校区）</span></div>
+    <div class="row"><span class="label">人员</span><span class="value">02级交通工程全体同学</span></div>
+    <div class="row"><span class="label">预算</span><span class="value">人均约 700 元</span></div>
+    <div class="row"><span class="label">住宿</span><span class="value">统一预订，标间合住</span></div>
+  </div>
+  <div class="cta">7月18日，不见不散。</div>
+</section>
+
+<section id="photos" style="max-width:1000px;">
+  <div class="section-title"><h3>青春记忆</h3><div class="gold"></div></div>
+  <div class="gallery">
+    <img src="photos/微信图片_20260625160639_24_5.jpg" alt="photo1" onclick="openLightbox(this.src)">
+    <img src="photos/微信图片_20260625160640_25_5.jpg" alt="photo2" onclick="openLightbox(this.src)">
+    <img src="photos/微信图片_20260625160641_26_5.jpg" alt="photo3" onclick="openLightbox(this.src)">
+    <img src="photos/微信图片_20260625160642_27_5.jpg" alt="photo4" onclick="openLightbox(this.src)">
+    <img src="photos/微信图片_20260625160643_28_5.jpg" alt="photo5" onclick="openLightbox(this.src)">
+    <img src="photos/微信图片_20260625160644_29_5.jpg" alt="photo6" onclick="openLightbox(this.src)">
+    <img src="photos/微信图片_20260625160647_30_5.jpg" alt="photo7" onclick="openLightbox(this.src)">
+    <img src="photos/微信图片_20260625160648_31_5.jpg" alt="photo8" onclick="openLightbox(this.src)">
+    <img src="photos/微信图片_20260625160650_32_5.jpg" alt="photo9" onclick="openLightbox(this.src)">
+    <img src="photos/微信图片_20260625160653_33_5.jpg" alt="photo10" onclick="openLightbox(this.src)">
+    <img src="photos/微信图片_20260625160654_34_5.jpg" alt="photo11" onclick="openLightbox(this.src)">
+    <img src="photos/微信图片_20260625160655_35_5.jpg" alt="photo12" onclick="openLightbox(this.src)">
+    <img src="photos/微信图片_20260625160657_36_5.jpg" alt="photo13" onclick="openLightbox(this.src)">
+    <img src="photos/微信图片_20260625160658_37_5.jpg" alt="photo14" onclick="openLightbox(this.src)">
+    <img src="photos/微信图片_20260625160700_38_5.jpg" alt="photo15" onclick="openLightbox(this.src)">
+    <img src="photos/微信图片_20260625160702_39_5.jpg" alt="photo16" onclick="openLightbox(this.src)">
+    <img src="photos/微信图片_20260625160703_40_5.jpg" alt="photo17" onclick="openLightbox(this.src)">
+    <img src="photos/微信图片_20260625160705_41_5.jpg" alt="photo18" onclick="openLightbox(this.src)">
+    <img src="photos/微信图片_20260625160706_42_5.jpg" alt="photo19" onclick="openLightbox(this.src)">
+    <img src="photos/微信图片_20260625160708_43_5.jpg" alt="photo20" onclick="openLightbox(this.src)">
+  </div>
+</section>
+
+<section id="schedule">
+  <div class="section-title">
+    <h3>行 程 安 排</h3>
+    <div class="sub">两天一夜 · 重返校园时光</div>
+    <div class="gold"></div>
+  </div>
+  <h4 style="margin:20px 0 12px;">第一天 · 7月18日（周六）</h4>
+  <div class="table-wrap"><table>
+    <tr><th style="width:25%">时间</th><th style="width:20%">环节</th><th>内容</th></tr>
+    <tr><td>10:00-12:00</td><td>报到签到</td><td>校门口集合，领取装备包（T恤/徽章/名牌），自由寒暧</td></tr>
+    <tr><td>12:00-13:30</td><td>怀旧午餐</td><td>校内食堂重温学生套餐，排队打饭的感觉</td></tr>
+    <tr><td>14:00-16:00</td><td>校园导览</td><td>教学楼→图书馆→宿舍→操场→后街→校园标志点</td></tr>
+    <tr><td>16:00-17:30</td><td>主题茶话会</td><td>老照片回顾 + 自由分享这20年 + 写一封信给20年前的自己</td></tr>
+    <tr><td>18:00-21:00</td><td>正式晚宴</td><td>趣味问答 + 老师发言 + 颁奖 + 大合照</td></tr>
+    <tr><td>21:00-深夜</td><td>自由夜聊</td><td>酒店续摊，想聊继续，想休息自便</td></tr>
+  </table></div>
+  <h4 style="margin:30px 0 12px;">第二天 · 7月19日（周日）</h4>
+  <div class="table-wrap"><table>
+    <tr><th style="width:25%">时间</th><th style="width:25%">环节</th><th>内容</th></tr>
+    <tr><td>09:00-09:30</td><td>早餐</td><td>酒店早餐</td></tr>
+    <tr><td>09:30-11:00</td><td>拜访老师/自由活动</td><td>愿看望老师的约伴前往；想逛校园的自行安排</td></tr>
+    <tr><td>11:30-13:00</td><td>告别午餐</td><td>简单吃一顿，互道珍重</td></tr>
+    <tr><td>13:00起</td><td>各自返程</td><td>下次再见！</td></tr>
+  </table></div>
+</section>
+
+<section id="tour">
+  <div class="section-title">
+    <h3>校 园 导 览 路 线</h3>
+    <div class="sub">江浦校区 · 重回20年前的每一步</div>
+    <div class="gold"></div>
+  </div>
+  <div class="route-step"><div class="route-num">01</div><div class="route-info"><h4>教学楼 / 学院楼</h4><p>找教室座位，拍同座位对比照，15分钟</p></div></div>
+  <div class="route-step"><div class="route-num">02</div><div class="route-info"><h4>图书馆</h4><p>看看20年前每天抢座的地方变成了什么样，15分钟</p></div></div>
+  <div class="route-step"><div class="route-num">03</div><div class="route-info"><h4>宿舍楼</h4><p>走廊站一站，聊聊当年寝室那些梗，20分钟</p></div></div>
+  <div class="route-step"><div class="route-num">04</div><div class="route-info"><h4>操场 / 体育馆</h4><p>回忆运动会、体测、晨跑的汗与笑，15分钟</p></div></div>
+  <div class="route-step"><div class="route-num">05</div><div class="route-info"><h4>食堂 + 后街</h4><p>边走边指——这家还在，那家早没了，25分钟</p></div></div>
+  <div class="route-step"><div class="route-num">06</div><div class="route-info"><h4>校园标志点 / 大草坪</h4><p>拍大合影，自由取景留念，30分钟</p></div></div>
+</section>
+
+<section id="banquet">
+  <div class="section-title">
+    <h3>晚 宴 环 节</h3>
+    <div class="sub">7月18日 18:00-21:00 · 欢聚一堂</div>
+    <div class="gold"></div>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item"><div class="time">18:00-18:15</div><div class="title">开场祝酒</div><div class="desc">联络人致简短欢迎词，全场举杯，正式开启晚宴</div></div>
+    <div class="timeline-item"><div class="time">18:15-19:30</div><div class="title">边吃边聊</div><div class="desc">丰盛晚餐，第一轮敬酒，叙旧畅谈</div></div>
+    <div class="timeline-item"><div class="time">19:30-19:45</div><div class="title">趣味问答</div><div class="desc">10道关于大学时代的题目，举手抢答，比谁记性好</div></div>
+    <div class="timeline-item"><div class="time">19:45-20:00</div><div class="title">老师发言</div><div class="desc">受邀老师讲几句，听听老师眼中的我们</div></div>
+    <div class="timeline-item"><div class="time">20:00-20:30</div><div class="title">最佳XX颁奖</div><div class="desc">变化最大奖 / 几乎没变奖 / 最远赶来奖……搞笑又温馨</div></div>
+    <div class="timeline-item"><div class="time">20:30-21:00</div><div class="title">自由敬酒+大合照</div><div class="desc">合影留念，为这一天画上完美句号</div></div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="section-title">
+    <h3>趣 味 问 答</h3>
+    <div class="sub">10道题 · 测测你还记得多少大学时光</div>
+    <div class="gold"></div>
+  </div>
+  <div class="quiz-item"><div class="q-num">第1题 - 人物篇</div><div class="q-text">当年教《交通工程》的专业课老师叫什么名字？</div></div>
+  <div class="quiz-item"><div class="q-num">第2题 - 地点篇</div><div class="q-text">大学四年，大家最常去的校外聚餐地点是哪里？</div></div>
+  <div class="quiz-item"><div class="q-num">第3题 - 名场面篇</div><div class="q-text">大二那年的班级活动/郊游去了哪里？</div></div>
+  <div class="quiz-item"><div class="q-num">第4题 - 人物篇</div><div class="q-text">咱们班谁四年从来没有翘过课？（或者谁是翘课冠军？）</div></div>
+  <div class="quiz-item"><div class="q-num">第5题 - 细节篇</div><div class="q-text">当年宿舍晚上几点熄灯断网？</div></div>
+  <div class="quiz-item"><div class="q-num">第6题 - 味道篇</div><div class="q-text">食堂里大家公认最难吃/最好吃的一道菜是什么？</div></div>
+  <div class="quiz-item"><div class="q-num">第7题 - 名场面篇</div><div class="q-text">毕业散伙饭是哪家餐厅吃的？</div></div>
+  <div class="quiz-item"><div class="q-num">第8题 - 数据篇</div><div class="q-text">咱们班一共多少人？几个宿舍？男女生比例是多少？</div></div>
+  <div class="quiz-item"><div class="q-num">第9题 - 人物篇</div><div class="q-text">当年学生会/社团里最活跃的是哪位同学？</div></div>
+  <div class="quiz-item"><div class="q-num">第10题 - 彩蛋</div><div class="q-text">请用一句话描述你对交通工程这个专业的理解，最精彩的获奖。</div></div>
+</section>
+
+<section id="awards">
+  <div class="section-title">
+    <h3>最 佳 XX 颁 奖</h3>
+    <div class="sub">严肃活泼 · 奖项获得者现场揭晓</div>
+    <div class="gold"></div>
+  </div>
+  <div class="award-item"><div class="award-name">「变化最大奖」</div><div class="award-desc">20年前你是___，20年后你___。感谢你证明了人是会变的这条真理。</div></div>
+  <div class="award-item"><div class="award-name">「几乎没变奖」</div><div class="award-desc">20年过去了，你依然___。岁月这把杀猪刀，唯独放过了你。全班嫉妒且欣慰。</div></div>
+  <div class="award-item"><div class="award-name">「最远赶来奖」</div><div class="award-desc">跨越___公里，只为一聚。这份情谊，全班敬你一杯。</div></div>
+  <div class="award-item"><div class="award-name">「最佳存在感奖」</div><div class="award-desc">大学四年你可能话不多，但20年后大家第一个想起的就是你。有些存在感，时间越久越清晰。</div></div>
+  <div class="award-item"><div class="award-name">「最强记性奖」</div><div class="award-desc">20年前的细节你如数家珍，人肉班级档案库，非你莫属。</div></div>
+  <div class="award-item"><div class="award-name">「终身成就奖」</div><div class="award-desc">不解释，你值得。</div></div>
+</section>
+
+<section id="budget">
+  <div class="section-title">
+    <h3>预 算 一 览</h3>
+    <div class="sub">人均约 700 元 · 18人总预算约 12,600 元</div>
+    <div class="gold"></div>
+  </div>
+  <div class="table-wrap"><table>
+    <tr><th style="width:28%">项目</th><th style="width:36%">明细</th><th style="width:18%">人均</th><th style="width:18%">小计</th></tr>
+    <tr><td>第一天午餐</td><td>校内食堂/餐厅</td><td>40元</td><td>720元</td></tr>
+    <tr><td>正式晚宴</td><td>校外中高档餐厅，2桌（含酒水）</td><td>200元</td><td>3,600元</td></tr>
+    <tr><td>第二天午餐</td><td>告别简餐</td><td>60元</td><td>1,080元</td></tr>
+    <tr><td>住宿（1晚）</td><td>校内招待所/周边经济型酒店，标间</td><td>120元</td><td>2,160元</td></tr>
+    <tr><td>纪念品/装备包</td><td>定制T恤 + 徽章 + 名牌 + 合影冲印</td><td>80元</td><td>1,440元</td></tr>
+    <tr><td>场地设备</td><td>茶话会教室/会议室租用 + 投影音响</td><td>25元</td><td>450元</td></tr>
+    <tr><td>老师伴手礼</td><td>2-3位老师的礼物</td><td>20元</td><td>360元</td></tr>
+    <tr><td>摄影记录</td><td>兼职摄影师跟拍</td><td>30元</td><td>540元</td></tr>
+    <tr><td>茶歇</td><td>水果、零食、饮料</td><td>25元</td><td>450元</td></tr>
+    <tr><td>应急备用</td><td>灵活调度，未用退还或发红包</td><td>100元</td><td>1,800元</td></tr>
+    <tr class="total-row"><td>合计</td><td></td><td>约700元</td><td>约12,600元</td></tr>
+  </table></div>
+  <p style="text-align:center;font-size:12px;color:#8b7355;margin-top:12px;">* 不住酒店的同学人均减去120元 · 纪念品可灵活调整 · 应急备用最后没用的话群里发红包开心一下</p>
+</section>
+
+<section id="checklist">
+  <div class="section-title">
+    <h3>筹 备 物 资 清 单</h3>
+    <div class="sub">逐项打勾 · 万无一失</div>
+    <div class="gold"></div>
+  </div>
+  <div class="check-group"><h4>装备包（每人一份）</h4>
+    <div class="check-item">&#x2610; 定制T恤 x18（提前收集尺码）</div>
+    <div class="check-item">&#x2610; 名牌/胸牌 x18</div>
+    <div class="check-item">&#x2610; 徽章/纪念品 x18</div>
+    <div class="check-item">&#x2610; 纸质行程单 x18</div>
+  </div>
+  <div class="check-group"><h4>茶话会</h4>
+    <div class="check-item">&#x2610; 老照片PPT/视频</div>
+    <div class="check-item">&#x2610; 教室/会议室预订确认</div>
+    <div class="check-item">&#x2610; 投影仪 + 音响（确认场地是否提供）</div>
+    <div class="check-item">&#x2610; 水果 x3盘 / 零食 x5袋</div>
+    <div class="check-item">&#x2610; 瓶装水 x1箱 / 饮料 x1箱</div>
+    <div class="check-item">&#x2610; 一次性杯子 x1包</div>
+  </div>
+  <div class="check-group"><h4>晚宴</h4>
+    <div class="check-item">&#x2610; 餐厅预订确认</div>
+    <div class="check-item">&#x2610; 趣味问答题目（打印 x3份）</div>
+    <div class="check-item">&#x2610; 颁奖证书（打印 x6份）</div>
+    <div class="check-item">&#x2610; 签名笔 x2支</div>
+    <div class="check-item">&#x2610; 老师伴手礼 x2-3</div>
+  </div>
+  <div class="check-group"><h4>拍照 & 住宿</h4>
+    <div class="check-item">&#x2610; 摄影师确认 / 横幅（可选）</div>
+    <div class="check-item">&#x2610; 酒店预订确认 / 房型分配表</div>
+  </div>
+  <div class="check-group"><h4>现场应急</h4>
+    <div class="check-item">&#x2610; 签到表（打印 x2份）+ 签到笔 x3支</div>
+    <div class="check-item">&#x2610; 透明胶带 / 剪刀</div>
+    <div class="check-item">&#x2610; 充电宝 x1（备用）</div>
+    <div class="check-item">&#x2610; 创可贴 / 防暑药（7月南京高温）</div>
+  </div>
+</section>
+
+<footer>
+  <p>02级交通工程 · 毕业20周年</p>
+  <p>2026年7月18日—19日 · 南京工业大学</p>
+  <p class="heart">那年我们从南工大出发，如今归来仍是少年</p>
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="close">&times;</span>
+  <img src="" alt="photo" id="lightbox-img">
+</div>
+
+<script>
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('active');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+</script>
+</body>
+</html>

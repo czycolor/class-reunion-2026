@@ -1,0 +1,22 @@
+# Build scripts - not needed for deployment
+gen_html.py
+build_pdf.py
+generate_pdf.py
+content.json
+
+# Docs
+docs/
+
+# Materials (separate files)
+materials/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# PDF output
+*.pdf
+
+# OS files
+.DS_Store
+Thumbs.db
