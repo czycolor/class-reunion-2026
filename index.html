@@ -27,19 +27,19 @@ nav a {
   white-space:nowrap; padding:5px 10px; border-radius:20px;
   transition:all .2s; flex-shrink:0; font-weight:500;
 }
-nav a:hover { color:#059669; background:#ecfdf5; }
+nav a:hover { color:#ff6b6b; background:#fff5f3; }
 
 /* Hero */
 .hero {
   min-height:100vh; display:flex; flex-direction:column;
   align-items:center; justify-content:center; text-align:center;
-  background:linear-gradient(160deg, #ecfdf5 0%, #f0fdf4 30%, #f9fafb 60%, #eff6ff 100%);
+  background:linear-gradient(160deg, #fff5f3 0%, #fff8f5 30%, #f9fafb 60%, #fef9f6 100%);
   padding:60px 20px; position:relative; overflow:hidden;
 }
 .hero::before {
   content:''; position:absolute; top:-80px; right:-80px;
   width:300px; height:300px; border-radius:50%;
-  background:radial-gradient(circle, rgba(5,150,105,0.08) 0%, transparent 70%);
+  background:radial-gradient(circle, rgba(255,107,107,0.1) 0%, transparent 70%);
 }
 .hero::after {
   content:''; position:absolute; bottom:-60px; left:-60px;
@@ -48,13 +48,13 @@ nav a:hover { color:#059669; background:#ecfdf5; }
 }
 .hero-content { position:relative; z-index:1; }
 .hero .badge {
-  display:inline-block; background:#d1fae5; color:#059669;
+  display:inline-block; background:#ffe8e0; color:#ff6b6b;
   padding:6px 20px; border-radius:20px; font-size:13px;
   font-weight:600; letter-spacing:4px; margin-bottom:24px;
 }
 .hero h1 {
   font-size:clamp(40px,8vw,64px); font-weight:800; letter-spacing:4px;
-  background:linear-gradient(135deg, #059669, #047857);
+  background:linear-gradient(135deg, #ff6b6b, #e8533f);
   -webkit-background-clip:text; -webkit-text-fill-color:transparent;
   background-clip:text;
 }
@@ -63,7 +63,7 @@ nav a:hover { color:#059669; background:#ecfdf5; }
   margin:12px 0 28px; font-weight:400; letter-spacing:2px;
 }
 .hero .line {
-  width:50px; height:3px; background:linear-gradient(90deg, #059669, #34d399);
+  width:50px; height:3px; background:linear-gradient(90deg, #ff6b6b, #ffa94d);
   border-radius:2px; margin:0 auto 28px;
 }
 .hero .info { font-size:15px; color:#9ca3af; margin:5px 0; }
@@ -73,7 +73,7 @@ nav a:hover { color:#059669; background:#ecfdf5; }
 }
 .scroll-hint {
   position:absolute; bottom:80px; animation:bounce 2s infinite;
-  color:#34d399; font-size:22px; z-index:1;
+  color:#ffa94d; font-size:22px; z-index:1;
 }
 @keyframes bounce {
   0%,100%{transform:translateY(0);} 50%{transform:translateY(8px);}
@@ -87,7 +87,7 @@ section { padding:70px 20px; max-width:820px; margin:0 auto; }
   font-size:14px; color:#9ca3af; margin-top:6px; font-weight:400;
 }
 .section-title .bar {
-  width:36px; height:3px; background:linear-gradient(90deg, #34d399, #059669);
+  width:36px; height:3px; background:linear-gradient(90deg, #ffa94d, #ff6b6b);
   border-radius:2px; margin:10px auto 0;
 }
 
@@ -104,7 +104,7 @@ section { padding:70px 20px; max-width:820px; margin:0 auto; }
 .info-box .row { display:flex; padding:10px 0; border-bottom:1px solid #f3f4f6; }
 .info-box .row:last-child { border:none; }
 .info-box .label {
-  color:#059669; font-weight:600; width:60px; flex-shrink:0; font-size:14px;
+  color:#ff6b6b; font-weight:600; width:60px; flex-shrink:0; font-size:14px;
 }
 .info-box .value { color:#374151; font-size:14px; }
 
@@ -135,23 +135,23 @@ section { padding:70px 20px; max-width:820px; margin:0 auto; }
 /* Table */
 .table-wrap { overflow-x:auto; margin:16px 0; border-radius:12px; }
 table { width:100%; border-collapse:collapse; font-size:14px; overflow:hidden; border-radius:12px; }
-th { background:#059669; color:#fff; padding:12px 16px; font-weight:600; text-align:center; font-size:13px; }
+th { background:#ff6b6b; color:#fff; padding:12px 16px; font-weight:600; text-align:center; font-size:13px; }
 td { padding:10px 16px; border-bottom:1px solid #f3f4f6; text-align:center; background:#fff; }
 tr:last-child td { border-bottom:none; }
 tr:nth-child(even) td { background:#f9fafb; }
-.total-row td { background:#ecfdf5!important; font-weight:700; color:#059669; }
+.total-row td { background:#fff5f3!important; font-weight:700; color:#ff6b6b; }
 
 /* Timeline */
 .timeline { position:relative; padding-left:28px; }
 .timeline::before {
   content:''; position:absolute; left:6px; top:4px; bottom:4px;
-  width:2px; background:#d1fae5; border-radius:1px;
+  width:2px; background:#ffe8e0; border-radius:1px;
 }
 .timeline-item { position:relative; margin-bottom:28px; }
 .timeline-item::before {
   content:''; position:absolute; left:-26px; top:6px;
   width:10px; height:10px; border-radius:50%;
-  background:#fff; border:2px solid #34d399;
+  background:#fff; border:2px solid #ffa94d;
 }
 .timeline-item .time { font-size:13px; color:#9ca3af; margin-bottom:2px; }
 .timeline-item .title { font-size:17px; font-weight:700; color:#111827; }
@@ -160,9 +160,9 @@ tr:nth-child(even) td { background:#f9fafb; }
 /* Quiz */
 .quiz-item {
   background:#fff; border-radius:12px; padding:16px 20px; margin:10px 0;
-  box-shadow:0 1px 3px rgba(0,0,0,0.04); border-left:3px solid #34d399;
+  box-shadow:0 1px 3px rgba(0,0,0,0.04); border-left:3px solid #ffa94d;
 }
-.quiz-item .q-num { font-size:12px; color:#059669; font-weight:700; text-transform:uppercase; }
+.quiz-item .q-num { font-size:12px; color:#ff6b6b; font-weight:700; text-transform:uppercase; }
 .quiz-item .q-text { margin-top:4px; font-size:15px; color:#374151; }
 
 /* Awards */
@@ -171,7 +171,7 @@ tr:nth-child(even) td { background:#f9fafb; }
   background:#fff; border-radius:16px;
   box-shadow:0 1px 3px rgba(0,0,0,0.04);
 }
-.award-item .award-name { font-size:20px; font-weight:700; color:#059669; }
+.award-item .award-name { font-size:20px; font-weight:700; color:#ff6b6b; }
 .award-item .award-desc { font-size:14px; color:#6b7280; margin-top:6px; }
 
 /* Checklist */
@@ -186,24 +186,24 @@ tr:nth-child(even) td { background:#f9fafb; }
   box-shadow:0 1px 3px rgba(0,0,0,0.04);
 }
 .route-num {
-  font-size:22px; font-weight:800; color:#d1fae5; min-width:40px;
+  font-size:22px; font-weight:800; color:#ffe8e0; min-width:40px;
 }
 .route-info h4 { font-size:16px; color:#111827; font-weight:600; }
 .route-info p { font-size:13px; color:#6b7280; margin-top:2px; }
 
 /* CTA */
-.cta { text-align:center; font-size:20px; font-weight:700; color:#059669; padding:24px; }
+.cta { text-align:center; font-size:20px; font-weight:700; color:#ff6b6b; padding:24px; }
 
 /* Footer */
 footer {
   text-align:center; padding:48px 20px; color:#9ca3af;
   font-size:13px; border-top:1px solid #f3f4f6; line-height:2;
 }
-footer .brand { color:#34d399; font-weight:600; }
+footer .brand { color:#ffa94d; font-weight:600; }
 
 /* Day heading */
 .day-heading {
-  font-size:17px; font-weight:700; color:#059669; margin:24px 0 12px;
+  font-size:17px; font-weight:700; color:#ff6b6b; margin:24px 0 12px;
   padding-left:4px;
 }
 
@@ -225,7 +225,7 @@ footer .brand { color:#34d399; font-weight:600; }
 #campus-map { height:500px; border-radius:16px; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.08); }
 .map-legend { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:12px; font-size:13px; color:#6b7280; }
 .map-legend span { display:flex; align-items:center; gap:4px; }
-.map-legend .dot { width:10px; height:10px; border-radius:50%; display:inline-block; background:#059669; }
+.map-legend .dot { width:10px; height:10px; border-radius:50%; display:inline-block; background:#ff6b6b; }
 @media (max-width:640px) { #campus-map { height:380px; border-radius:12px; } }
 </style>
 </head>
@@ -445,35 +445,35 @@ footer .brand { color:#34d399; font-weight:600; }
     <div class="bar"></div>
   </div>
   <div class="check-group"><h4>装备包（每人一份）</h4>
-    <div class="check-item"><span style="color:#34d399;">&#10003;</span> 定制T恤 x18（提前收集尺码）</div>
-    <div class="check-item"><span style="color:#34d399;">&#10003;</span> 名牌/胸牌 x18</div>
-    <div class="check-item"><span style="color:#34d399;">&#10003;</span> 徽章/纪念品 x18</div>
-    <div class="check-item"><span style="color:#34d399;">&#10003;</span> 纸质行程单 x18</div>
+    <div class="check-item"><span style="color:#ffa94d;">&#10003;</span> 定制T恤 x18（提前收集尺码）</div>
+    <div class="check-item"><span style="color:#ffa94d;">&#10003;</span> 名牌/胸牌 x18</div>
+    <div class="check-item"><span style="color:#ffa94d;">&#10003;</span> 徽章/纪念品 x18</div>
+    <div class="check-item"><span style="color:#ffa94d;">&#10003;</span> 纸质行程单 x18</div>
   </div>
   <div class="check-group"><h4>茶话会</h4>
-    <div class="check-item"><span style="color:#34d399;">&#10003;</span> 老照片PPT/视频</div>
-    <div class="check-item"><span style="color:#34d399;">&#10003;</span> 教室/会议室预订确认</div>
-    <div class="check-item"><span style="color:#34d399;">&#10003;</span> 投影仪 + 音响（确认场地是否提供）</div>
-    <div class="check-item"><span style="color:#34d399;">&#10003;</span> 水果 x3盘 / 零食 x5袋</div>
-    <div class="check-item"><span style="color:#34d399;">&#10003;</span> 瓶装水 x1箱 / 饮料 x1箱</div>
-    <div class="check-item"><span style="color:#34d399;">&#10003;</span> 一次性杯子 x1包</div>
+    <div class="check-item"><span style="color:#ffa94d;">&#10003;</span> 老照片PPT/视频</div>
+    <div class="check-item"><span style="color:#ffa94d;">&#10003;</span> 教室/会议室预订确认</div>
+    <div class="check-item"><span style="color:#ffa94d;">&#10003;</span> 投影仪 + 音响（确认场地是否提供）</div>
+    <div class="check-item"><span style="color:#ffa94d;">&#10003;</span> 水果 x3盘 / 零食 x5袋</div>
+    <div class="check-item"><span style="color:#ffa94d;">&#10003;</span> 瓶装水 x1箱 / 饮料 x1箱</div>
+    <div class="check-item"><span style="color:#ffa94d;">&#10003;</span> 一次性杯子 x1包</div>
   </div>
   <div class="check-group"><h4>晚宴</h4>
-    <div class="check-item"><span style="color:#34d399;">&#10003;</span> 餐厅预订确认</div>
-    <div class="check-item"><span style="color:#34d399;">&#10003;</span> 趣味问答题目（打印 x3份）</div>
-    <div class="check-item"><span style="color:#34d399;">&#10003;</span> 颁奖证书（打印 x6份）</div>
-    <div class="check-item"><span style="color:#34d399;">&#10003;</span> 签名笔 x2支</div>
-    <div class="check-item"><span style="color:#34d399;">&#10003;</span> 老师伴手礼 x2-3</div>
+    <div class="check-item"><span style="color:#ffa94d;">&#10003;</span> 餐厅预订确认</div>
+    <div class="check-item"><span style="color:#ffa94d;">&#10003;</span> 趣味问答题目（打印 x3份）</div>
+    <div class="check-item"><span style="color:#ffa94d;">&#10003;</span> 颁奖证书（打印 x6份）</div>
+    <div class="check-item"><span style="color:#ffa94d;">&#10003;</span> 签名笔 x2支</div>
+    <div class="check-item"><span style="color:#ffa94d;">&#10003;</span> 老师伴手礼 x2-3</div>
   </div>
   <div class="check-group"><h4>拍照 & 住宿</h4>
-    <div class="check-item"><span style="color:#34d399;">&#10003;</span> 摄影师确认 / 横幅（可选）</div>
-    <div class="check-item"><span style="color:#34d399;">&#10003;</span> 酒店预订确认 / 房型分配表</div>
+    <div class="check-item"><span style="color:#ffa94d;">&#10003;</span> 摄影师确认 / 横幅（可选）</div>
+    <div class="check-item"><span style="color:#ffa94d;">&#10003;</span> 酒店预订确认 / 房型分配表</div>
   </div>
   <div class="check-group"><h4>现场应急</h4>
-    <div class="check-item"><span style="color:#34d399;">&#10003;</span> 签到表（打印 x2份）+ 签到笔 x3支</div>
-    <div class="check-item"><span style="color:#34d399;">&#10003;</span> 透明胶带 / 剪刀</div>
-    <div class="check-item"><span style="color:#34d399;">&#10003;</span> 充电宝 x1（备用）</div>
-    <div class="check-item"><span style="color:#34d399;">&#10003;</span> 创可贴 / 防暑药（7月南京高温）</div>
+    <div class="check-item"><span style="color:#ffa94d;">&#10003;</span> 签到表（打印 x2份）+ 签到笔 x3支</div>
+    <div class="check-item"><span style="color:#ffa94d;">&#10003;</span> 透明胶带 / 剪刀</div>
+    <div class="check-item"><span style="color:#ffa94d;">&#10003;</span> 充电宝 x1（备用）</div>
+    <div class="check-item"><span style="color:#ffa94d;">&#10003;</span> 创可贴 / 防暑药（7月南京高温）</div>
   </div>
 </section>
 
@@ -525,7 +525,7 @@ document.addEventListener('keydown', function(e) {
   // Draw route line
   var latlngs = route.map(function(p) { return [p.lat, p.lng]; });
   L.polyline(latlngs, {
-    color: '#059669',
+    color: '#ff6b6b',
     weight: 4,
     opacity: 0.8,
     dashArray: null
@@ -540,7 +540,7 @@ document.addEventListener('keydown', function(e) {
     L.circleMarker(mid, {
       radius: 4,
       color: '#fff',
-      fillColor: '#059669',
+      fillColor: '#ff6b6b',
       fillOpacity: 1,
       weight: 2
     }).addTo(map);
@@ -548,7 +548,7 @@ document.addEventListener('keydown', function(e) {
 
   // Draw markers
   var icon = L.divIcon({
-    html: '<div style="background:#059669;color:#fff;width:24px;height:24px;border-radius:50%;text-align:center;line-height:24px;font-size:12px;font-weight:700;box-shadow:0 2px 6px rgba(0,0,0,0.2);border:2px solid #fff;"></div>',
+    html: '<div style="background:#ff6b6b;color:#fff;width:24px;height:24px;border-radius:50%;text-align:center;line-height:24px;font-size:12px;font-weight:700;box-shadow:0 2px 6px rgba(0,0,0,0.2);border:2px solid #fff;"></div>',
     iconSize: [24, 24],
     iconAnchor: [12, 12],
     popupAnchor: [0, -14]
@@ -609,8 +609,8 @@ document.addEventListener('keydown', function(e) {
   <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;max-width:750px;margin:0 auto;">
     <a href="printables/invitation.html" target="_blank" style="padding:14px 24px;background:linear-gradient(135deg,#ff6b6b,#ffa94d);color:white;border-radius:28px;text-decoration:none;font-weight:600;font-size:14px;box-shadow:0 2px 8px rgba(255,107,107,0.2);">📧 邀请函</a>
     <a href="printables/itinerary-card.html" target="_blank" style="padding:14px 24px;background:linear-gradient(135deg,#ff6b6b,#ffa94d);color:white;border-radius:28px;text-decoration:none;font-weight:600;font-size:14px;box-shadow:0 2px 8px rgba(255,107,107,0.2);">📋 行程单</a>
-    <a href="printables/sign-in-sheet.html" target="_blank" style="padding:14px 24px;background:#059669;color:white;border-radius:28px;text-decoration:none;font-weight:600;font-size:14px;box-shadow:0 2px 8px rgba(5,150,105,0.2);">✍️ 签到表</a>
-    <a href="printables/award-certificates.html" target="_blank" style="padding:14px 24px;background:#059669;color:white;border-radius:28px;text-decoration:none;font-weight:600;font-size:14px;box-shadow:0 2px 8px rgba(5,150,105,0.2);">🏆 颁奖证书</a>
+    <a href="printables/sign-in-sheet.html" target="_blank" style="padding:14px 24px;background:#ff6b6b;color:white;border-radius:28px;text-decoration:none;font-weight:600;font-size:14px;box-shadow:0 2px 8px rgba(255,107,107,0.2);">✍️ 签到表</a>
+    <a href="printables/award-certificates.html" target="_blank" style="padding:14px 24px;background:#ff6b6b;color:white;border-radius:28px;text-decoration:none;font-weight:600;font-size:14px;box-shadow:0 2px 8px rgba(255,107,107,0.2);">🏆 颁奖证书</a>
     <a href="printables/checklist.html" target="_blank" style="padding:14px 24px;background:white;color:#333;border:1.5px solid #ddd;border-radius:28px;text-decoration:none;font-weight:600;font-size:14px;">📦 筹备清单</a>
   </div>
   <p style="color:#aaa;font-size:11px;margin-top:20px;">打开后按 Ctrl+P 打印 | 建议使用A4纸张 | Chrome打印效果最佳</p>
