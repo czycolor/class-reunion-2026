@@ -20,3 +20,11 @@ __pycache__/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Brainstorming scratch
+.superpowers/brainstorm/
+
+# Debug / temp
+debug_output.txt
+output.log
+_map_temp/
