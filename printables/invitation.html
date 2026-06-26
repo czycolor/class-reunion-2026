@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>邀请函 - 02级交通工程毕业20周年聚会</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    background: #f0ebe6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #333;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 148mm;
+    height: 210mm;
+    background: #fff;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+    margin-bottom: 40px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* ============================
+     PAGE 1 — COVER
+     ============================ */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20mm 14mm 18mm;
+    text-align: center;
+    position: relative;
+  }
+
+  /* Subtle decorative background pattern */
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 10% 20%, rgba(255,107,107,0.04) 0%, transparent 50%),
+      radial-gradient(circle at 90% 80%, rgba(255,169,77,0.04) 0%, transparent 50%),
+      linear-gradient(180deg, #fff8f5 0%, #fff 50%, #fff8f5 100%);
+    z-index: 0;
+  }
+
+  .cover > * { position: relative; z-index: 1; }
+
+  /* Decorative corner elements */
+  .corner-tl, .corner-br {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 1;
+  }
+  .corner-tl {
+    top: 12mm; left: 12mm;
+    border-top: 2px solid rgba(255,107,107,0.25);
+    border-left: 2px solid rgba(255,107,107,0.25);
+  }
+  .corner-br {
+    bottom: 12mm; right: 12mm;
+    border-bottom: 2px solid rgba(255,107,107,0.25);
+    border-right: 2px solid rgba(255,107,107,0.25);
+  }
+
+  /* Gradient circle with "20" */
+  .circle-wrap {
+    margin-bottom: 22px;
+  }
+
+  .circle {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff6b6b, #ffa94d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.30);
+    position: relative;
+    animation: none;
+  }
+
+  .circle-number {
+    font-size: 58px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -3px;
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  /* Small decorative dots around circle */
+  .circle-ring {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(255,107,107,0.20);
+  }
+
+  .main-title {
+    font-size: 44px;
+    font-weight: 800;
+    color: #333;
+    letter-spacing: 8px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+
+  .main-title .highlight {
+    color: #ff6b6b;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: #666;
+    letter-spacing: 3px;
+    margin-bottom: 28px;
+    line-height: 1.8;
+  }
+
+  /* Orange divider */
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    width: 100%;
+  }
+
+  .divider-line {
+    flex: 0 0 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #ff6b6b, #ffa94d);
+    border-radius: 2px;
+  }
+
+  .divider-diamond {
+    width: 8px;
+    height: 8px;
+    background: #ff6b6b;
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  /* CTA */
+  .cta {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ff6b6b;
+    letter-spacing: 5px;
+    margin-top: 4px;
+  }
+
+  .cta-sub {
+    font-size: 13px;
+    color: #999;
+    letter-spacing: 2px;
+    margin-top: 10px;
+  }
+
+  /* ============================
+     PAGE 2 — INNER
+     ============================ */
+  .inner {
+    padding: 22mm 14mm 18mm;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #fff 0%, #fffaf7 100%);
+    z-index: 0;
+  }
+
+  .inner > * { position: relative; z-index: 1; }
+
+  .inner-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 800;
+    color: #333;
+    letter-spacing: 10px;
+    margin-bottom: 6px;
+  }
+
+  .inner-title-underline {
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6b6b, #ffa94d);
+    margin: 10px auto 28px;
+    border-radius: 2px;
+  }
+
+  /* Info section */
+  .info-section {
+    margin-bottom: 22px;
+  }
+
+  .info-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 9px 0 9px 4px;
+    border-bottom: 1px dashed #eee;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .info-row:first-child { border-top: 1px dashed #eee; }
+
+  .info-label {
+    width: 56px;
+    font-weight: 700;
+    color: #ff6b6b;
+    flex-shrink: 0;
+    letter-spacing: 2px;
+  }
+
+  .info-value {
+    flex: 1;
+    color: #444;
+    letter-spacing: 0.5px;
+  }
+
+  /* Section title */
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    margin-bottom: 14px;
+    letter-spacing: 4px;
+    position: relative;
+  }
+
+  .section-title::before,
+  .section-title::after {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: #ddd;
+    vertical-align: middle;
+    margin: 0 10px;
+  }
+
+  /* Schedule */
+  .schedule-section {
+    margin-bottom: 18px;
+    flex-shrink: 0;
+  }
+
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .schedule-day {
+    background: #fffaf5;
+    border-radius: 8px;
+    padding: 10px 12px 12px;
+    border: 1px solid #f5e4da;
+  }
+
+  .schedule-day-header {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ff6b6b;
+    text-align: center;
+    padding-bottom: 6px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid #f5e4da;
+    letter-spacing: 1px;
+  }
+
+  .schedule-item {
+    font-size: 12px;
+    color: #555;
+    padding: 3px 0 3px 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .schedule-time {
+    font-size: 10px;
+    color: #bbb;
+    font-weight: 400;
+    margin-left: auto;
+    flex-shrink: 0;
+    letter-spacing: 0;
+  }
+
+  .schedule-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #ffa94d;
+    flex-shrink: 0;
+  }
+
+  /* Closing sentiment */
+  .closing {
+    text-align: center;
+    font-size: 13px;
+    color: #666;
+    line-height: 2;
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid #f0e8e0;
+    letter-spacing: 1px;
+  }
+
+  .closing strong {
+    color: #ff6b6b;
+    font-weight: 700;
+  }
+
+  .closing .tagline {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ff6b6b;
+    letter-spacing: 4px;
+    margin-top: 6px;
+  }
+
+  /* ============================
+     PRINT STYLES
+     ============================ */
+  @page {
+    size: 148mm 210mm;
+    margin: 0;
+  }
+
+  @media print {
+    body {
+      background: #fff;
+      padding: 0;
+      margin: 0;
+    }
+    .page {
+      box-shadow: none;
+      margin: 0;
+      page-break-after: always;
+      width: 148mm;
+      height: 210mm;
+    }
+    .page:last-child {
+      page-break-after: auto;
+    }
+    .cover::before {
+      /* Keep background on print */
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .circle, .divider-line, .divider-diamond,
+    .inner-title-underline, .schedule-dot {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+
+  /* ============================
+     SCREEN RESPONSIVE
+     ============================ */
+  @media screen and (max-width: 540px) {
+    body { padding: 10px; }
+    .page {
+      width: 100%;
+      height: auto;
+      min-height: 210mm;
+    }
+    .cover { padding: 15mm 8mm; }
+    .inner { padding: 15mm 8mm; }
+    .main-title { font-size: 32px; letter-spacing: 5px; }
+    .circle { width: 100px; height: 100px; }
+    .circle-number { font-size: 44px; }
+    .cta { font-size: 18px; }
+    .corner-tl, .corner-br { display: none; }
+    .schedule-grid { gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     PAGE 1 — COVER
+     ============================================================ -->
+<div class="page cover">
+  <div class="corner-tl"></div>
+  <div class="corner-br"></div>
+
+  <div class="circle-wrap">
+    <div class="circle">
+      <span class="circle-number">20</span>
+      <div class="circle-ring"></div>
+    </div>
+  </div>
+
+  <div class="main-title">
+    重返<span class="highlight">20</span>岁
+  </div>
+
+  <div class="subtitle">
+    02级交通工程 · 毕业20周年聚会
+  </div>
+
+  <div class="divider">
+    <span class="divider-line"></span>
+    <span class="divider-diamond"></span>
+    <span class="divider-line"></span>
+  </div>
+
+  <div class="cta">7月18日，不见不散。</div>
+  <div class="cta-sub">— 我们在母校等你 —</div>
+</div>
+
+<!-- ============================================================
+     PAGE 2 — INNER DETAILS
+     ============================================================ -->
+<div class="page inner">
+
+  <div class="inner-title">聚会邀请函</div>
+  <div class="inner-title-underline"></div>
+
+  <!-- Info -->
+  <div class="info-section">
+    <div class="info-row">
+      <span class="info-label">时间</span>
+      <span class="info-value">2026年7月18日（周六）— 7月19日（周日）</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">地点</span>
+      <span class="info-value">XX市XX酒店 &amp; XX大学校本部</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">人员</span>
+      <span class="info-value">02级交通工程全体同学（欢迎携家属）</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">预算</span>
+      <span class="info-value">AA制，预收 600 元/人<br>（含住宿餐饮，多退少补）</span>
+    </div>
+  </div>
+
+  <!-- Schedule preview -->
+  <div class="schedule-section">
+    <div class="section-title">两天一夜行程概要</div>
+    <div class="schedule-grid">
+      <!-- Day 1 -->
+      <div class="schedule-day">
+        <div class="schedule-day-header">Day 1 · 7月18日（周六）</div>
+        <div class="schedule-item">
+          <span class="schedule-dot"></span>签到入住
+          <span class="schedule-time">14:00</span>
+        </div>
+        <div class="schedule-item">
+          <span class="schedule-dot"></span>主题班会
+          <span class="schedule-time">15:30</span>
+        </div>
+        <div class="schedule-item">
+          <span class="schedule-dot"></span>校园重游
+          <span class="schedule-time">17:00</span>
+        </div>
+        <div class="schedule-item">
+          <span class="schedule-dot"></span>晚宴 · 把酒言欢
+          <span class="schedule-time">18:30</span>
+        </div>
+      </div>
+      <!-- Day 2 -->
+      <div class="schedule-day">
+        <div class="schedule-day-header">Day 2 · 7月19日（周日）</div>
+        <div class="schedule-item">
+          <span class="schedule-dot"></span>早餐
+          <span class="schedule-time">08:00</span>
+        </div>
+        <div class="schedule-item">
+          <span class="schedule-dot"></span>合影留念
+          <span class="schedule-time">09:30</span>
+        </div>
+        <div class="schedule-item">
+          <span class="schedule-dot"></span>欢聚午餐
+          <span class="schedule-time">11:30</span>
+        </div>
+        <div class="schedule-item">
+          <span class="schedule-dot"></span>告别 · 期待再会
+          <span class="schedule-time">13:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Closing -->
+  <div class="closing">
+    二十载光阴，弹指一挥间。<br>
+    母校梧桐依旧，而我们已从青涩少年成长为各自领域的栋梁。<br>
+    这一次，让我们放下忙碌，回到梦开始的地方——<br>
+    同窗再聚首，共话当年情。<br><br>
+    <strong>期待每一位老同学的到来！</strong>
+    <div class="tagline">青春不散场</div>
+  </div>
+
+</div>
+
+</body>
+</html>

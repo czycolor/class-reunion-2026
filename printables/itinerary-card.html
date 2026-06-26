@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>02级交通工程毕业20周年聚会 · 行程卡</title>
+<style>
+  /* ── Reset ── */
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+  /* ── Page & tri-fold ── */
+  body {
+    background: #e8e8e8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .card {
+    width: 297mm;
+    height: 210mm;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 8px 40px rgba(0,0,0,.18);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .panel {
+    flex: 0 0 33.33333%;
+    width: 99mm;  /* 297 / 3 */
+    height: 100%;
+    position: relative;
+  }
+
+  /* ── Panel 1  —  Cover ── */
+  .panel-cover {
+    background: linear-gradient(145deg, #fff5f0 0%, #fee2d6 40%, #ffd6c8 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 18mm 8mm 12mm;
+    text-align: center;
+  }
+
+  .circle-20 {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff6b6b, #e84545);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(255,107,107,.35);
+    margin-bottom: 14px;
+  }
+  .circle-20 span {
+    font-size: 44px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -1px;
+  }
+
+  .panel-cover h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #c0392b;
+    letter-spacing: 6px;
+    margin-bottom: 8px;
+  }
+
+  .panel-cover .subtitle {
+    font-size: 14px;
+    color: #b03a2e;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+  }
+
+  .divider {
+    width: 50px;
+    height: 3px;
+    background: #ff6b6b;
+    border-radius: 2px;
+    margin-bottom: 18px;
+  }
+
+  .cover-info {
+    font-size: 12px;
+    color: #7f5a4e;
+    line-height: 1.9;
+    letter-spacing: .5px;
+  }
+  .cover-info span {
+    display: block;
+  }
+
+  .cover-bottom {
+    position: absolute;
+    bottom: 12mm;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 11px;
+    color: #b86a5a;
+    letter-spacing: 3px;
+    opacity: .7;
+  }
+
+  /* ── Panel 2 & 3  —  Schedule ── */
+  .panel-schedule {
+    background: #fff;
+    padding: 14mm 7mm 10mm;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .panel-schedule h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #c0392b;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #ff6b6b;
+  }
+
+  .event-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .event-item {
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 5px;
+  }
+  .event-item:last-child {
+    border-bottom: none;
+  }
+
+  .event-time {
+    font-size: 12px;
+    font-weight: 700;
+    color: #ff6b6b;
+    letter-spacing: .5px;
+  }
+
+  .event-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2d2d2d;
+    margin: 1px 0 2px;
+  }
+
+  .event-desc {
+    font-size: 11px;
+    color: #888;
+    line-height: 1.4;
+  }
+
+  .event-item.day2 .event-time { color: #e67e22; }
+
+  /* ── Panel 3  —  Extra info area ── */
+  .info-area {
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+  }
+
+  .qr-placeholder {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 8px;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    color: #bbb;
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  .info-area .website {
+    font-size: 12px;
+    color: #ff6b6b;
+    text-align: center;
+    letter-spacing: .5px;
+    margin-bottom: 6px;
+  }
+
+  .info-area .emergency {
+    font-size: 11px;
+    color: #666;
+    text-align: center;
+    line-height: 1.6;
+  }
+  .emergency strong {
+    color: #c0392b;
+  }
+
+  /* ── Print ── */
+  @media print {
+    body {
+      background: none;
+      min-height: auto;
+    }
+    .card {
+      box-shadow: none;
+      border-radius: 0;
+    }
+    @page {
+      size: landscape;
+      margin: 0;
+    }
+  }
+
+  /* ── Responsive fallback ── */
+  @media screen and (max-width: 900px) {
+    .card {
+      width: 100%;
+      height: auto;
+      flex-direction: column;
+      border-radius: 0;
+    }
+    .panel {
+      flex: none;
+      width: 100%;
+      height: auto;
+      min-height: 260px;
+    }
+    .panel-cover { padding: 30px 20px; }
+    .panel-schedule { padding: 30px 20px; }
+    .cover-bottom { position: static; margin-top: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <!-- ═══ Panel 1 — Cover ═══ -->
+  <div class="panel panel-cover">
+    <div class="circle-20"><span>20</span></div>
+    <h1>重返20岁</h1>
+    <p class="subtitle">两天一夜 &middot; 重返校园时光</p>
+    <div class="divider"></div>
+    <div class="cover-info">
+      <span>02级交通工程</span>
+      <span>毕业20周年聚会</span>
+      <span>2026.7.18 — 7.19</span>
+    </div>
+    <div class="cover-bottom">✦ 青春不散场 ✦</div>
+  </div>
+
+  <!-- ═══ Panel 2 — Day 1 ═══ -->
+  <div class="panel panel-schedule">
+    <h2>Day 1 &middot; 7/18 (周六)</h2>
+    <div class="event-list">
+      <div class="event-item">
+        <div class="event-time">10:00 — 12:00</div>
+        <div class="event-title">报到签到</div>
+        <div class="event-desc">母校南门 · 领取纪念品 &amp; 文化衫</div>
+      </div>
+      <div class="event-item">
+        <div class="event-time">12:00 — 13:30</div>
+        <div class="event-title">怀旧午餐</div>
+        <div class="event-desc">二食堂 · 重温当年的味道</div>
+      </div>
+      <div class="event-item">
+        <div class="event-time">14:00 — 16:00</div>
+        <div class="event-title">校园导览</div>
+        <div class="event-desc">重走青春路 · 教学楼 &amp; 宿舍 &amp; 操场</div>
+      </div>
+      <div class="event-item">
+        <div class="event-time">16:00 — 17:30</div>
+        <div class="event-title">茶话会</div>
+        <div class="event-desc">校友之家 · 聊聊这些年</div>
+      </div>
+      <div class="event-item">
+        <div class="event-time">18:00 — 21:00</div>
+        <div class="event-title">晚宴</div>
+        <div class="event-desc">迎宾馆宴会厅 · 把酒言欢</div>
+      </div>
+      <div class="event-item">
+        <div class="event-time">21:00 — 深夜</div>
+        <div class="event-title">夜聊</div>
+        <div class="event-desc">自由活动 · 叙旧畅谈</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ Panel 3 — Day 2 + Info ═══ -->
+  <div class="panel panel-schedule">
+    <h2>Day 2 &middot; 7/19 (周日)</h2>
+    <div class="event-list">
+      <div class="event-item day2">
+        <div class="event-time">09:00 — 09:30</div>
+        <div class="event-title">早餐</div>
+        <div class="event-desc">酒店餐厅 · 自助早餐</div>
+      </div>
+      <div class="event-item day2">
+        <div class="event-time">09:30 — 11:00</div>
+        <div class="event-title">拜访老师</div>
+        <div class="event-desc">学院办公楼 · 感念师恩</div>
+      </div>
+      <div class="event-item day2">
+        <div class="event-time">11:30 — 13:00</div>
+        <div class="event-title">告别午餐</div>
+        <div class="event-desc">校外商街 · 最后的聚餐</div>
+      </div>
+      <div class="event-item day2">
+        <div class="event-time">13:00 起</div>
+        <div class="event-title">返程</div>
+        <div class="event-desc">依依惜别 · 期待再相聚</div>
+      </div>
+    </div>
+
+    <!-- Info area -->
+    <div class="info-area">
+      <div class="qr-placeholder">扫码<br>查看详情</div>
+      <div class="website">02traffic.github.io/reunion</div>
+      <div class="emergency">
+        紧急联系<br>
+        <strong>陈浩</strong> 138-0000-1234<br>
+        <strong>李霞</strong> 139-0000-5678
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

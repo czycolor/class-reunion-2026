@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>筹备物资清单</title>
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 15mm 18mm 18mm 18mm;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    width: 210mm;
+    min-height: 297mm;
+    padding: 15mm 18mm 18mm 18mm;
+    color: #1f2937;
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── Header ── */
+  .header { text-align: center; margin-bottom: 22px; }
+  .header h1 {
+    font-size: 28px; font-weight: 700; letter-spacing: 2px;
+    color: #059669; margin-bottom: 6px;
+  }
+  .header .subtitle {
+    font-size: 13px; color: #6b7280; letter-spacing: 1px;
+  }
+  .header hr {
+    margin: 16px auto 0; width: 60px; border: none;
+    border-top: 3px solid #059669;
+  }
+
+  /* ── Groups ── */
+  .group { margin-bottom: 20px; }
+  .group-heading {
+    font-size: 16px; font-weight: 600; color: #047857;
+    padding: 6px 0 4px 0;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 8px;
+  }
+
+  /* ── Items (2-column grid) ── */
+  .items { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px; }
+  .items.single { grid-template-columns: 1fr; }
+
+  .item {
+    display: flex; align-items: center; gap: 8px;
+    padding: 4px 0;
+    font-size: 14px; line-height: 1.5;
+  }
+
+  /* Empty checkbox */
+  .checkbox {
+    flex-shrink: 0;
+    width: 18px; height: 18px;
+    border: 2px solid #059669;
+    border-radius: 3px;
+    background: #fff;
+  }
+
+  /* ── Footer note ── */
+  .footer-note {
+    margin-top: 32px;
+    padding: 14px 16px;
+    background: #f0fdf4;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #065f46;
+    line-height: 1.8;
+  }
+  .footer-note strong { color: #047857; }
+
+  /* ── Print tweaks ── */
+  @media print {
+    body { padding: 0; margin: 0; width: auto; }
+    .footer-note { background: #f0fdf4 !important; }
+    .checkbox { border-color: #059669 !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>筹备物资清单</h1>
+  <div class="subtitle">逐项打勾 · 万无一失 · 02交通毕业20周年</div>
+  <hr>
+</div>
+
+<!-- 1 -->
+<div class="group">
+  <div class="group-heading">🎒 装备包（每人一份 ×18）</div>
+  <div class="items">
+    <div class="item"><span class="checkbox"></span>T恤</div>
+    <div class="item"><span class="checkbox"></span>名牌</div>
+    <div class="item"><span class="checkbox"></span>徽章</div>
+    <div class="item"><span class="checkbox"></span>行程单</div>
+  </div>
+</div>
+
+<!-- 2 -->
+<div class="group">
+  <div class="group-heading">☕ 茶话会</div>
+  <div class="items">
+    <div class="item"><span class="checkbox"></span>PPT</div>
+    <div class="item"><span class="checkbox"></span>教室</div>
+    <div class="item"><span class="checkbox"></span>投影音响</div>
+    <div class="item"><span class="checkbox"></span>水果零食</div>
+    <div class="item"><span class="checkbox"></span>水/饮料</div>
+    <div class="item"><span class="checkbox"></span>杯子</div>
+  </div>
+</div>
+
+<!-- 3 -->
+<div class="group">
+  <div class="group-heading">🍽️ 晚宴</div>
+  <div class="items">
+    <div class="item"><span class="checkbox"></span>餐厅预订</div>
+    <div class="item"><span class="checkbox"></span>问答二维码</div>
+    <div class="item"><span class="checkbox"></span>证书 ×6</div>
+    <div class="item"><span class="checkbox"></span>签名笔</div>
+    <div class="item"><span class="checkbox"></span>老师伴手礼</div>
+  </div>
+</div>
+
+<!-- 4 -->
+<div class="group">
+  <div class="group-heading">📷 拍照 &amp; 住宿</div>
+  <div class="items">
+    <div class="item"><span class="checkbox"></span>摄影师</div>
+    <div class="item"><span class="checkbox"></span>酒店预订</div>
+  </div>
+</div>
+
+<!-- 5 -->
+<div class="group">
+  <div class="group-heading">🚑 现场应急</div>
+  <div class="items">
+    <div class="item"><span class="checkbox"></span>签到表</div>
+    <div class="item"><span class="checkbox"></span>胶带/剪刀</div>
+    <div class="item"><span class="checkbox"></span>充电宝</div>
+    <div class="item"><span class="checkbox"></span>创可贴/防暑药</div>
+  </div>
+</div>
+
+<div class="footer-note">
+  <strong>最后检查日：7月15日</strong> ｜ 所有预订电话再确认 ｜ 应急备用金100元/人
+</div>
+
+</body>
+</html>

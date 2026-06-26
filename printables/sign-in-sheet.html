@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>02交通签到墙 · 毕业20周年</title>
+<style>
+  /* Reset & base */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, -apple-system, sans-serif;
+    background: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 0;
+  }
+
+  /* A4 landscape page */
+  .page {
+    width: 297mm;
+    min-height: 210mm;
+    background: #ffffff;
+    margin: 0 auto 24px;
+    padding: 12mm 14mm 10mm;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    border-radius: 4px;
+    position: relative;
+  }
+
+  /* ===== Header ===== */
+  .header {
+    text-align: center;
+    margin-bottom: 7mm;
+    position: relative;
+  }
+  .header::after {
+    content: "";
+    display: block;
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff6b6b, transparent);
+    margin: 4mm auto 0;
+  }
+  .header h1 {
+    font-size: 24pt;
+    font-weight: 700;
+    color: #ff6b6b;
+    letter-spacing: 4px;
+  }
+  .header .subtitle {
+    font-size: 11pt;
+    color: #888;
+    margin-top: 2mm;
+    letter-spacing: 2px;
+  }
+
+  /* ===== Grid: 6 columns × 3 rows ===== */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 3.5mm 3mm;
+    margin-bottom: 6mm;
+  }
+
+  /* ===== Slot ===== */
+  .slot {
+    border: 1px solid #f0d0d0;
+    border-radius: 6px;
+    padding: 3mm 2.5mm 2.5mm;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 38mm;
+    position: relative;
+    transition: box-shadow 0.15s;
+  }
+  .slot:hover {
+    box-shadow: 0 1px 6px rgba(255,107,107,0.15);
+    border-color: #ffb3b3;
+  }
+
+  /* Number badge */
+  .slot .num {
+    position: absolute;
+    top: 1.2mm;
+    right: 1.8mm;
+    font-size: 7pt;
+    color: #ffb3b3;
+    font-weight: 300;
+  }
+
+  /* Sticky‑note area (top) */
+  .slot .sticky {
+    flex: 1;
+    margin-bottom: 2mm;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 8.5mm,
+      #fff0f0 8.5mm,
+      #fff0f0 8.6mm
+    );
+    border-radius: 3px;
+    min-height: 16mm;
+    padding: 0.5mm 1mm;
+    font-size: 7pt;
+    color: #bbb;
+    line-height: 7mm;
+    cursor: text;
+    position: relative;
+    overflow: hidden;
+  }
+  .slot .sticky::before {
+    content: "✏️ 留言/印象";
+    position: absolute;
+    top: 1mm;
+    left: 1.5mm;
+    font-size: 6.5pt;
+    color: #ccc;
+    pointer-events: none;
+  }
+
+  /* Signature line */
+  .slot .sig-line {
+    border-top: 2px dashed #ffb3b3;
+    padding-top: 1.8mm;
+    display: flex;
+    align-items: center;
+    gap: 1mm;
+    position: relative;
+  }
+  .slot .sig-label {
+    font-size: 6.5pt;
+    color: #ff8a8a;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .slot .sig-dashed {
+    flex: 1;
+    border-bottom: 1.5px dashed #ffc8c8;
+    height: 6mm;
+  }
+  .slot .sig-dashed::after {
+    content: "签名";
+    display: block;
+    font-size: 6pt;
+    color: #ddd;
+    text-align: right;
+    padding-right: 1mm;
+    line-height: 6mm;
+  }
+
+  /* ===== Footer ===== */
+  .footer {
+    text-align: center;
+    font-size: 8pt;
+    color: #aaa;
+    letter-spacing: 1px;
+    padding-top: 2mm;
+    border-top: 1px solid #f0e0e0;
+    display: flex;
+    justify-content: center;
+    gap: 10mm;
+  }
+  .footer span {
+    position: relative;
+  }
+  .footer span + span::before {
+    content: "|";
+    position: absolute;
+    left: -5mm;
+    color: #e0d0d0;
+  }
+
+  /* ===== Print styles ===== */
+  @media print {
+    body {
+      background: none;
+      padding: 0;
+      margin: 0;
+    }
+    .page {
+      width: 297mm;
+      min-height: 210mm;
+      margin: 0;
+      padding: 12mm 14mm 10mm;
+      box-shadow: none;
+      border-radius: 0;
+      page-break-after: avoid;
+      box-sizing: border-box;
+    }
+    .slot:hover {
+      box-shadow: none;
+      border-color: #f0d0d0;
+    }
+    @page {
+      size: landscape;
+      margin: 0;
+    }
+  }
+
+  /* ===== Fallback: ensure older browsers get a reasonable layout ===== */
+  @supports not (display: grid) {
+    .grid { display: flex; flex-wrap: wrap; }
+    .slot { width: calc(100% / 6 - 4px); margin: 2px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>猜猜我是谁？—— 02交通签到墙</h1>
+    <p class="subtitle">20年了，你还认得出我吗？</p>
+  </div>
+
+  <!-- 6×3 grid = 18 slots -->
+  <div class="grid">
+    <div class="slot"><span class="num">01</span><div class="sticky"></div><div class="sig-line"><span class="sig-label">签 名</span><div class="sig-dashed"></div></div></div>
+    <div class="slot"><span class="num">02</span><div class="sticky"></div><div class="sig-line"><span class="sig-label">签 名</span><div class="sig-dashed"></div></div></div>
+    <div class="slot"><span class="num">03</span><div class="sticky"></div><div class="sig-line"><span class="sig-label">签 名</span><div class="sig-dashed"></div></div></div>
+    <div class="slot"><span class="num">04</span><div class="sticky"></div><div class="sig-line"><span class="sig-label">签 名</span><div class="sig-dashed"></div></div></div>
+    <div class="slot"><span class="num">05</span><div class="sticky"></div><div class="sig-line"><span class="sig-label">签 名</span><div class="sig-dashed"></div></div></div>
+    <div class="slot"><span class="num">06</span><div class="sticky"></div><div class="sig-line"><span class="sig-label">签 名</span><div class="sig-dashed"></div></div></div>
+    <div class="slot"><span class="num">07</span><div class="sticky"></div><div class="sig-line"><span class="sig-label">签 名</span><div class="sig-dashed"></div></div></div>
+    <div class="slot"><span class="num">08</span><div class="sticky"></div><div class="sig-line"><span class="sig-label">签 名</span><div class="sig-dashed"></div></div></div>
+    <div class="slot"><span class="num">09</span><div class="sticky"></div><div class="sig-line"><span class="sig-label">签 名</span><div class="sig-dashed"></div></div></div>
+    <div class="slot"><span class="num">10</span><div class="sticky"></div><div class="sig-line"><span class="sig-label">签 名</span><div class="sig-dashed"></div></div></div>
+    <div class="slot"><span class="num">11</span><div class="sticky"></div><div class="sig-line"><span class="sig-label">签 名</span><div class="sig-dashed"></div></div></div>
+    <div class="slot"><span class="num">12</span><div class="sticky"></div><div class="sig-line"><span class="sig-label">签 名</span><div class="sig-dashed"></div></div></div>
+    <div class="slot"><span class="num">13</span><div class="sticky"></div><div class="sig-line"><span class="sig-label">签 名</span><div class="sig-dashed"></div></div></div>
+    <div class="slot"><span class="num">14</span><div class="sticky"></div><div class="sig-line"><span class="sig-label">签 名</span><div class="sig-dashed"></div></div></div>
+    <div class="slot"><span class="num">15</span><div class="sticky"></div><div class="sig-line"><span class="sig-label">签 名</span><div class="sig-dashed"></div></div></div>
+    <div class="slot"><span class="num">16</span><div class="sticky"></div><div class="sig-line"><span class="sig-label">签 名</span><div class="sig-dashed"></div></div></div>
+    <div class="slot"><span class="num">17</span><div class="sticky"></div><div class="sig-line"><span class="sig-label">签 名</span><div class="sig-dashed"></div></div></div>
+    <div class="slot"><span class="num">18</span><div class="sticky"></div><div class="sig-line"><span class="sig-label">签 名</span><div class="sig-dashed"></div></div></div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span>写出你对 ta 的第一印象</span>
+    <span>活动后扫描存档</span>
+    <span>02交通 · 毕业20周年</span>
+  </div>
+
+</div>
+
+</body>
+</html>

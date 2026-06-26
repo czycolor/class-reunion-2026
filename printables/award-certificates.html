@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>02交通毕业20周年 · 搞笑奖状</title>
+<style>
+  /* ─── reset ─── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    background: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  /* ─── page ─── */
+  .page {
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+    background: #fff;
+    margin: 16px auto;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,.12);
+    page-break-after: always;
+  }
+
+  /* ─── dashed border ─── */
+  .page-inner {
+    position: absolute;
+    inset: 8mm;
+    border: 3px dashed #e8533f;
+    border-radius: 6mm;
+    overflow: hidden;
+  }
+
+  /* ─── gradient ribbon ─── */
+  .ribbon {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 28mm;
+    background: linear-gradient(135deg, #e8533f 0%, #f39c12 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ribbon h1 {
+    color: #fff;
+    font-size: 20mm;
+    font-weight: 900;
+    letter-spacing: 6mm;
+    text-shadow: 0 2px 6px rgba(0,0,0,.25);
+  }
+
+  /* ─── big faded number ─── */
+  .big-number {
+    position: absolute;
+    top: 12mm;
+    right: 18mm;
+    font-size: 72mm;
+    font-weight: 900;
+    color: rgba(232,83,63,.08);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* ─── content area (below ribbon) ─── */
+  .content {
+    position: absolute;
+    top: 32mm;
+    left: 0; right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8mm 20mm 14mm;
+    text-align: center;
+  }
+
+  /* ─── award name ─── */
+  .award-name {
+    font-size: 18mm;
+    font-weight: 900;
+    color: #e8533f;
+    line-height: 1.2;
+    letter-spacing: 4mm;
+    margin-bottom: 4mm;
+  }
+  .award-sub {
+    font-size: 5mm;
+    color: #999;
+    font-weight: 400;
+    letter-spacing: 1.5mm;
+    margin-bottom: 10mm;
+  }
+
+  /* ─── recipient line ─── */
+  .recipient-line {
+    width: 80%;
+    border-bottom: 2px dashed #ccc;
+    padding-bottom: 1mm;
+    font-size: 7mm;
+    color: #666;
+    margin-bottom: 8mm;
+    position: relative;
+  }
+  .recipient-line::before {
+    content: "获奖者：________________";
+    letter-spacing: .5mm;
+  }
+
+  /* ─── punchline ─── */
+  .punchline {
+    font-size: 5.5mm;
+    color: #444;
+    line-height: 1.8;
+    max-width: 90%;
+    margin-bottom: 10mm;
+  }
+  .punchline .blank {
+    display: inline-block;
+    min-width: 6em;
+    border-bottom: 1.5px solid #e8533f;
+    color: #e8533f;
+    font-weight: 700;
+  }
+
+  /* ─── date ─── */
+  .date {
+    font-size: 4mm;
+    color: #aaa;
+    letter-spacing: 1mm;
+  }
+
+  /* ─── watermark ─── */
+  .watermark {
+    position: absolute;
+    bottom: 14mm;
+    right: 18mm;
+    font-size: 12mm;
+    font-weight: 900;
+    color: rgba(232,83,63,.06);
+    transform: rotate(-12deg);
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: 4mm;
+  }
+
+  /* ─── print ─── */
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      page-break-after: always;
+    }
+    .page:last-child { page-break-after: auto; }
+  }
+
+  /* ─── screen label (not printed) ─── */
+  .screen-label {
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+    margin: 8px 0 -8px;
+  }
+  @media print { .screen-label { display: none; } }
+</style>
+</head>
+<body>
+
+<!-- ====== 1 ====== -->
+<div class="page">
+  <div class="page-inner">
+    <div class="ribbon"><h1>搞笑奖状</h1></div>
+    <div class="big-number">01</div>
+    <div class="content">
+      <div class="award-name">变化最大奖</div>
+      <div class="award-sub">The Most Changed Award</div>
+      <div class="recipient-line"></div>
+      <div class="punchline">
+        20年前你是<span class="blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>，<br>
+        20年后你<span class="blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>。<br>
+        感谢你证明了「人是会变的」这条真理。
+      </div>
+      <div class="date">2026.7.18 · 02交通毕业20周年</div>
+    </div>
+    <div class="watermark">重返20岁</div>
+  </div>
+</div>
+
+<!-- ====== 2 ====== -->
+<div class="page">
+  <div class="page-inner">
+    <div class="ribbon"><h1>搞笑奖状</h1></div>
+    <div class="big-number">02</div>
+    <div class="content">
+      <div class="award-name">几乎没变奖</div>
+      <div class="award-sub">The Least Changed Award</div>
+      <div class="recipient-line"></div>
+      <div class="punchline">
+        20年过去了，你依然<span class="blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>。<br>
+        岁月这把杀猪刀，唯独放过了你。
+      </div>
+      <div class="date">2026.7.18 · 02交通毕业20周年</div>
+    </div>
+    <div class="watermark">重返20岁</div>
+  </div>
+</div>
+
+<!-- ====== 3 ====== -->
+<div class="page">
+  <div class="page-inner">
+    <div class="ribbon"><h1>搞笑奖状</h1></div>
+    <div class="big-number">03</div>
+    <div class="content">
+      <div class="award-name">最远赶来奖</div>
+      <div class="award-sub">The Furthest Distance Award</div>
+      <div class="recipient-line"></div>
+      <div class="punchline">
+        跨越<span class="blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>公里，只为一聚。<br>
+        这份情谊，全班敬你一杯。
+      </div>
+      <div class="date">2026.7.18 · 02交通毕业20周年</div>
+    </div>
+    <div class="watermark">重返20岁</div>
+  </div>
+</div>
+
+<!-- ====== 4 ====== -->
+<div class="page">
+  <div class="page-inner">
+    <div class="ribbon"><h1>搞笑奖状</h1></div>
+    <div class="big-number">04</div>
+    <div class="content">
+      <div class="award-name">最佳存在感奖</div>
+      <div class="award-sub">The Best Presence Award</div>
+      <div class="recipient-line"></div>
+      <div class="punchline">
+        大学四年你可能话不多，<br>
+        但20年后大家第一个想起的就是你。
+      </div>
+      <div class="date">2026.7.18 · 02交通毕业20周年</div>
+    </div>
+    <div class="watermark">重返20岁</div>
+  </div>
+</div>
+
+<!-- ====== 5 ====== -->
+<div class="page">
+  <div class="page-inner">
+    <div class="ribbon"><h1>搞笑奖状</h1></div>
+    <div class="big-number">05</div>
+    <div class="content">
+      <div class="award-name">最强记性奖</div>
+      <div class="award-sub">The Best Memory Award</div>
+      <div class="recipient-line"></div>
+      <div class="punchline">
+        20年前的细节你如数家珍，<br>
+        人肉班级档案库，非你莫属。
+      </div>
+      <div class="date">2026.7.18 · 02交通毕业20周年</div>
+    </div>
+    <div class="watermark">重返20岁</div>
+  </div>
+</div>
+
+<!-- ====== 6 ====== -->
+<div class="page">
+  <div class="page-inner">
+    <div class="ribbon"><h1>搞笑奖状</h1></div>
+    <div class="big-number">06</div>
+    <div class="content">
+      <div class="award-name">终身成就奖</div>
+      <div class="award-sub">Lifetime Achievement Award</div>
+      <div class="recipient-line"></div>
+      <div class="punchline">
+        不解释。你值得。<br>
+        全班起立鼓掌。
+      </div>
+      <div class="date">2026.7.18 · 02交通毕业20周年</div>
+    </div>
+    <div class="watermark">重返20岁</div>
+  </div>
+</div>
+
+<p class="screen-label">浏览器打印 (Ctrl+P) → 选择 A4 → 横向 → 边距: 无</p>
+</body>
+</html>
